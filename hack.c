@@ -3,7 +3,7 @@
 # include <stdio.h>
 int main()
 {
-  int n,i, absent,roll,total,present;
+  int n,i,absent,roll,total,present;
   float attendance;
   char name[50];
   
@@ -23,13 +23,21 @@ int main()
   printf("Enter total classes: ");
   scanf("%d", &total);
   
-  printf("Enter number of days present: ");
-  scanf("%d", &present);
-  
+   if(total<=0){
+   printf("total classes must be greater than 0: ");
+   continue;}
+   
+   printf("Enter number of days present: ");
+   scanf("%d", &present);
+   
+   if( present> total)
+   {printf("Present days must be 0 or between 0 and total classes: ");
+   continue;}
+ 
    attendance= (present*100.0)/total;
    absent= total-present;
    
-  
+   
   printf("\n-----Attendance report-----\n");
   
   printf("\nStudent name: %s\n", name);
